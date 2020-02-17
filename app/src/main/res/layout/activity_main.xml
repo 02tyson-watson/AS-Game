@@ -16,4 +16,16 @@
         android:textColor="#000000"
         android:layout_centerInParent="true"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Start"
+        android:id="@+id/Button"
+        android:fontFamily="@font/ka1"
+        android:background="#FFFFF"
+        android:textSize="50sp"
+        android:layout_height="wrap_content"/>
+
+
 </RelativeLayout>
