@@ -11,6 +11,9 @@ public class MainThread extends Thread {
     private GamePanel gamePanel;
     private boolean running;
     public static Canvas canvas;
+    public void setRunning(Boolean running){
+        this.running = running;
+    }
     public MainThread(SurfaceHolder surfaceHolder, GamePanel gamePanel){
         super();
         this.surfaceHolder = surfaceHolder;
@@ -28,8 +31,26 @@ public class MainThread extends Thread {
             startTime = System.nanoTime();
             canvas = null;
             try{
-
-            } catch{Exception e}
+                canvas = this.surfaceHolder.lockCanvas();
+                synchronized (surfaceHolder){
+                    this.gamePanel.update();
+                    this.gamePanel.draw(canvas);
+                }
+            } catch(Exception e){e.printStackTrace();}finally {
+                if(canvas != null){
+                    try{
+                        surfaceHolder.unlockCanvasAndPost(canvas);
+                    } catch(Exception e){e.printStackTrace();}
+                    totalTime += System.nanoTime() - startTime;
+                    frameCount ++;
+                    if(frameCount == MAX_FPS){
+                        averageFPS = 1000/((totalTime/frameCount)/1000000);
+                        frameCount = 0;
+                        totalTime = 0;
+                        System.out.println(averageFPS);
+                    }
+                }
+            }
         }
     }
 }

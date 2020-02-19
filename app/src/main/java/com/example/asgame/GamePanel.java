@@ -6,9 +6,9 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import androidx.annotation.MainThread;
 
-public class GamePanel extends, SurfaceView implements SurfaceHolder.Callback {
+
+public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
     public GamePanel (Context context){
         super(context);
