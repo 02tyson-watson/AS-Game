@@ -65,6 +65,5 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         super.draw(canvas);
         canvas.drawColor(Color.BLACK);
         player.draw(canvas);
-
     }
 }

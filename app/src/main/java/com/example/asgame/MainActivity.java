@@ -17,11 +17,12 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openGame();
+
+                openGame(button);
             }
         });
 
-    }public void openGame(){
+    }public void openGame(View view){
         Intent intent = new Intent(this, Game.class);
         startActivity(intent);
     }

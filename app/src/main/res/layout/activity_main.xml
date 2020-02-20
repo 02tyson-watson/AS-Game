@@ -21,6 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Start"
+        android:onClick="openGame"
         android:textColor="#000000"
         android:id="@+id/Button"
         android:fontFamily="@font/ka1"
