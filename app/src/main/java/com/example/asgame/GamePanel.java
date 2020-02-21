@@ -2,14 +2,14 @@ package com.example.asgame;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-
-
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
+    private GamePanel player;
     public GamePanel (Context context){
         super(context);
         getHolder().addCallback(this);
@@ -49,11 +49,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void draw(Canvas canvas){
         super.draw(canvas);
-<<<<<<< HEAD
-        canvas.drawColor(Color.BLACK);
+        canvas.drawColor(Color.YELLOW);
         player.draw(canvas);
-=======
-
->>>>>>> parent of 28e45a8... Added the player code so you can hopefully move
     }
 }
