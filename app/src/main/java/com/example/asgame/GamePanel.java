@@ -2,9 +2,6 @@ package com.example.asgame;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Point;
-import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -13,16 +10,10 @@ import android.view.SurfaceView;
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
-
-    private RectPlayer player;
-    private Point playerPoint;
-
     public GamePanel (Context context){
         super(context);
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
-        player = new RectPlayer(new Rect(100,100,200,200), Color.rgb(255,0,0));
-        playerPoint = new Point(150,150);
         setFocusable(true);
     }
     @Override
@@ -50,20 +41,19 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     }
     @Override
     public boolean onTouchEvent(MotionEvent event){
-        switch (event.getAction()){
-            case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_MOVE:
-                playerPoint.set((int)event.getX(),(int)event.getY());
-        }
-        return true;
+        return super.onTouchEvent(event);
     }
     public void update(){
-        player.update();
+
     }
     @Override
     public void draw(Canvas canvas){
         super.draw(canvas);
+<<<<<<< HEAD
         canvas.drawColor(Color.BLACK);
         player.draw(canvas);
+=======
+
+>>>>>>> parent of 28e45a8... Added the player code so you can hopefully move
     }
 }
