@@ -35,12 +35,12 @@ public class ObstacleManager {
         startTime = System.currentTimeMillis();
         float speed = Constants.SCREEN_HEIGHT/10000.0f;
         for(Obstacle ob : obstacles){
-            ob.incrementY(speed * elapsedTime);
+            ob.incrementY(speed * elapsedTime * 2);
         }
         if(obstacles.get(obstacles.size()-1).getRectangle().top >= Constants.SCREEN_HEIGHT){
             int xStart = (int)(Math.random()*(Constants.SCREEN_WIDTH - playerGap));
             obstacles.add(0, new Obstacle(obstacleHeight,color, xStart ,obstacles.get(0).getRectangle().top - obstacleHeight - obstacleGap,playerGap));
-            obstacles.remove(obstacles.size() -1);
+            obstacles.remove(obstacles.size() - 1);
         }
     }
     public void draw(Canvas canvas){

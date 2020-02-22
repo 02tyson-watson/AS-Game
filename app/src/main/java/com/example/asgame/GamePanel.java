@@ -18,10 +18,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         super(context);
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
-        setFocusable(true);
-        player = new RectPlayer(new Rect( 100,100,200,200),Color.rgb(255,0,0));
+        player = new RectPlayer(new Rect( 100,200,200,100),Color.BLUE);
         playerPoint = new Point(725,2250);
-        obstacleManager= new ObstacleManager(200, 1000,75, Color.WHITE );
+        obstacleManager= new ObstacleManager(300, 500,100, Color.WHITE );
+        // playerGap is how big the whole is for the player to fit into
+        // ObstacleGap is the gap between the different bars
+        // height is just how thick the bars are
         setFocusable(true);
     }
     @Override
