@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Difficulty">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DIFFICULTY SELECT"
+        android:fontFamily="@font/ka1"
+        android:textSize="50sp"
+        android:id="@+id/title"
+        android:textColor="#000000"
+        android:paddingTop="40dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/ka1"
+        android:text="Easy"
+        android:onClick="openGame_easy"
+        android:id="@+id/easy"
+        android:textColor="#000000"
+        android:textSize="40dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/easy"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/ka1"
+        android:text="Medium"
+        android:onClick="openGame_medium"
+        android:id="@+id/medium"
+        android:textColor="#000000"
+        android:textSize="40dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/medium"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/ka1"
+        android:text="Hard"
+        android:onClick="openGame_hard"
+        android:id="@+id/hard"
+        android:textColor="#000000"
+        android:textSize="40dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hard"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/ka1"
+        android:text="Impossible"
+        android:onClick="openGame_impossible"
+        android:id="@+id/impossible"
+        android:textColor="#000000"
+        android:textSize="40dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/impossible"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/ka1"
+        android:text="Custom"
+        android:onClick="openCustom"
+        android:id="@+id/custom"
+        android:textColor="#000000"
+        android:textSize="40dp" />
+
+</RelativeLayout>
