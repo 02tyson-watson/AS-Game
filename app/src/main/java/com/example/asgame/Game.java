@@ -3,6 +3,7 @@ package com.example.asgame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Window;
@@ -19,7 +20,9 @@ public class Game extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         Constants.SCREEN_HEIGHT = dm.heightPixels;
         Constants.SCREEN_WIDTH = dm.widthPixels;
-
+        final MediaPlayer sonic = MediaPlayer.create(this, R.raw.sonic);
+        sonic.isLooping();
+        sonic.start();
         setContentView(new GamePanel(this));
     }
 }
