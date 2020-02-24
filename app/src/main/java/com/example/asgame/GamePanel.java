@@ -14,6 +14,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private RectPlayer player;
     private Point playerPoint;
     private ObstacleManager obstacleManager;
+    private boolean movingPlayer = false;
+    private boolean gameOver = false;
     public GamePanel (Context context){
         super(context);
         getHolder().addCallback(this);
@@ -53,16 +55,29 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public boolean onTouchEvent(MotionEvent event){
         switch(event.getAction()){
             case MotionEvent.ACTION_DOWN:
+                if(!gameOver && player.getRectangle().contains((int)event.getX(), (int)event.getY())){
+                    movingPlayer = true;
+
+                }break;
             case MotionEvent.ACTION_MOVE:
-                playerPoint.set((int)event.getX(), (int)event.getY());
+                if(!gameOver && movingPlayer){
+                    playerPoint.set((int)event.getX(), (int)event.getY());
+                }break;
+            case MotionEvent.ACTION_UP:
+                movingPlayer = false;
+                break;
         }
         return true;
         //return super.onTouchEvent(event);
     }
     public void update(){
-        player.update(playerPoint);
-        obstacleManager.update();
-    }
+        if(!gameOver) {
+            player.update(playerPoint);
+            obstacleManager.update();
+            if(obstacleManager.playerCollide(player)){
+                gameOver = true;
+            }
+        }}
     @Override
     public void draw(Canvas canvas){
         super.draw(canvas);

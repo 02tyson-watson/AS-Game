@@ -22,6 +22,15 @@ public class ObstacleManager {
         obstacles = new ArrayList<>();
         populateObstacles();
     }
+
+    public boolean playerCollide(RectPlayer player){
+        for(Obstacle ob : obstacles){
+            if(ob.playerCollide(player)){
+                return true;
+            }
+        }
+        return false;
+    }
     private void populateObstacles(){
         int currY = -5*Constants.SCREEN_HEIGHT/4;
         while(currY < 0){
