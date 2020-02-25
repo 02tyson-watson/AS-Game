@@ -2,19 +2,12 @@ package com.example.asgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActivityManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
-
-import java.util.List;
 
 public class Difficulty extends AppCompatActivity {
-    final MediaPlayer select = MediaPlayer.create(this, R.raw.sonic_select);
 
 
     @Override
@@ -27,7 +20,7 @@ public class Difficulty extends AppCompatActivity {
         final MediaPlayer select = MediaPlayer.create(this, R.raw.sonic_select);
         final MediaPlayer easy = MediaPlayer.create(this, R.raw.sonic_easy);
         try{
-            select.stop();
+            select.pause();
             Thread.sleep(3000);
         } catch (InterruptedException e){
             e.printStackTrace();
