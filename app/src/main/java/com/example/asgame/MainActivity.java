@@ -13,9 +13,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final MediaPlayer sonicx = MediaPlayer.create(this, R.raw.sonic_x);
-        sonicx.start();
-        sonicx.isLooping();
+        final MediaPlayer select = MediaPlayer.create(this, R.raw.sonic_select);
+        try{
+            Thread.sleep(3000);
+            select.start();
+            select.isLooping();
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
     }public void difficulty_select(View view){
         Intent intent = new Intent(this, Difficulty.class);
         startActivity(intent);

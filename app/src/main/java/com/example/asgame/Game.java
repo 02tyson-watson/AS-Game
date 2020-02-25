@@ -20,9 +20,6 @@ public class Game extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         Constants.SCREEN_HEIGHT = dm.heightPixels;
         Constants.SCREEN_WIDTH = dm.widthPixels;
-        final MediaPlayer sonic = MediaPlayer.create(this, R.raw.sonic);
-        sonic.isLooping();
-        sonic.start();
         setContentView(new GamePanel(this));
     }
 }
