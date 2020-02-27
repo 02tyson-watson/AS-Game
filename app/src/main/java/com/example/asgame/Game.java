@@ -10,10 +10,18 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class Game extends Activity {
+    public MediaPlayer song;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        song = MediaPlayer.create(this, R.raw.sonic_select);
+        try{
+            Thread.sleep(3000);
+            song.start();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         DisplayMetrics dm = new DisplayMetrics();
