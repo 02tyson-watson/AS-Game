@@ -22,7 +22,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
         player = new RectPlayer(new Rect( 100,200,200,100),Color.BLUE);
-        playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT/4);
+        playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT - 200);
         player.update(playerPoint);
         obstacleManager= new ObstacleManager(300, 500,100, Color.WHITE );
         // playerGap is how big the whole is for the player to fit into
@@ -31,7 +31,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         setFocusable(true);
     }
     public void reset(){
-        playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT/4);
+        playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT - 200);
         movingPlayer = false;
         player.update(playerPoint);
         obstacleManager= new ObstacleManager(300, 500,100, Color.WHITE );
@@ -62,37 +62,17 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public boolean onTouchEvent(MotionEvent event){
         switch(event.getAction()){
-            /*
+
             case MotionEvent.ACTION_DOWN:
                 if(!gameOver && player.getRectangle().contains((int)event.getX(), (int)event.getY())){
-                    movingPlayer = true;
-                }
-                if(gameOver && System.currentTimeMillis() - gameOverTime >= 2000){
-                    reset();
-                    gameOver = false;
-                }
-                break;
-            case MotionEvent.ACTION_MOVE:
-                if(!gameOver && movingPlayer){
-                    playerPoint.set((int)event.getX(), (int)event.getY());
-                }break;
-            case MotionEvent.ACTION_UP:
-                movingPlayer = false;
-                break;
-        }
-        return true;
-        //return super.onTouchEvent(event);
-        */
-            case MotionEvent.ACTION_DOWN:
-                if(!gameOver && player.getRectangle().contains((int)event.getX(), (int)event.getY())){
-                    movingPlayer = true;
+                    movingPlayer = false;
                 }if(gameOver && System.currentTimeMillis() - gameOverTime >= 2000){
                 reset();
-                gameOver = false;
+                gameOver = true;
             }
                 break;
             case MotionEvent.ACTION_MOVE:
-                if(!gameOver && movingPlayer){
+                if(!gameOver && !movingPlayer){
                     playerPoint.set((int)event.getX(), (int)event.getY());
                 }break;
             case MotionEvent.ACTION_UP:
