@@ -25,9 +25,8 @@ public class ObstacleManager {
 
     public boolean playerCollide(RectPlayer player){
         for(Obstacle ob : obstacles){
-            if(ob.playerCollide(player)){
+            if(ob.playerCollide(player))
                 return true;
-            }
         }
         return false;
     }

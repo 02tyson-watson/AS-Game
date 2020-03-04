@@ -9,6 +9,7 @@ import android.graphics.Rect;
 public class RectPlayer implements GameObject {
 
     private Rect rectangle;
+    private Rect rectangle2;
     private int color;
     public Rect getRectangle(){
         return rectangle;

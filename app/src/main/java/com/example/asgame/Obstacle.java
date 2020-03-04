@@ -25,7 +25,7 @@ public class Obstacle implements GameObject {
 
     }
     public boolean playerCollide(RectPlayer player){
-        return Rect.intersects(rectangle,player.getRectangle()) || Rect.intersects(rectangle2,player.getRectangle());
+        return Rect.intersects(rectangle, player.getRectangle()) || Rect.intersects(rectangle2, player.getRectangle());
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Obstacle implements GameObject {
         Paint paint = new Paint();
         paint.setColor(color);
         canvas.drawRect(rectangle, paint);
-        canvas.drawRect(rectangle2,paint);
+        canvas.drawRect(rectangle2, paint);
     }
 
     @Override
