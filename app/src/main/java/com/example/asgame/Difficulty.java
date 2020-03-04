@@ -12,6 +12,7 @@ public class Difficulty extends AppCompatActivity {
     public MediaPlayer easy;
     public MediaPlayer medium;
     public MediaPlayer hard;
+    public MediaPlayer impossible;
     public MediaPlayer custom;
 
     @Override
@@ -20,8 +21,9 @@ public class Difficulty extends AppCompatActivity {
         setContentView(R.layout.activity_difficulty);
         song = MediaPlayer.create(this, R.raw.sonic_select);
         easy = MediaPlayer.create(this, R.raw.sonic_easy);
+        medium = MediaPlayer.create(this, R.raw.sonic_medium);
         hard = MediaPlayer.create(this, R.raw.sonic_hard);
-        custom = MediaPlayer.create(this, R.raw.sonic_custom);
+        impossible = MediaPlayer.create(this, R.raw.sonic_impossible);
         song.start();
         Intent intent = getIntent();
     }
@@ -33,6 +35,7 @@ public class Difficulty extends AppCompatActivity {
     }
     public void openGame_medium (View view){
         stopPlaying();
+        medium.start();
         Intent intent = new Intent(this, Game.class);
         startActivity(intent);
     }
@@ -44,12 +47,12 @@ public class Difficulty extends AppCompatActivity {
     }
     public void openGame_impossible (View view){
         stopPlaying();
+        impossible.start();
         Intent intent = new Intent(this, Game.class);
         startActivity(intent);
     }
     public void openCustom (View view){
         stopPlaying();
-        custom.start();
         Intent intent = new Intent(this, Custom.class);
         startActivity(intent);
     }
