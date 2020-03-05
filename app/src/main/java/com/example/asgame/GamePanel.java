@@ -7,27 +7,50 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
+    String difficulty = Difficulty.difficulty;
     private Rect r = new Rect();
     private MainThread thread;
     private RectPlayer player;
     private Point playerPoint;
     private ObstacleManager obstacleManager;
     private boolean movingPlayer = false;
-    private boolean gameOver = false;
+    public static boolean gameOver = false;
     private long gameOverTime;
+    public int gap = 300;
+    public int obGap = 500;
+    public int height = 100;
     public GamePanel (Context context){
         super(context);
+        switch (difficulty){
+            case "impossible":
+                gap = 200;
+                obGap = 200;
+                break;
+            case "hard":
+                gap = 250;
+                obGap = 300;
+                break;
+            case "easy":
+                gap = 500;
+                obGap = 400;
+                break;
+            case "medium":
+                gap = 300;
+                obGap = 500;
+                break;
+        }
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
         player = new RectPlayer(new Rect( 100,200,200,100),Color.BLUE);
         playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT - 200);
         player.update(playerPoint);
-        obstacleManager= new ObstacleManager(300, 500,100, Color.WHITE );
+        obstacleManager= new ObstacleManager(gap, obGap, height, Color.WHITE );
         // playerGap is how big the whole is for the player to fit into
         // ObstacleGap is the gap between the different bars
         // height is just how thick the bars are
@@ -36,7 +59,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public void reset(){
         playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT - 200);
         player.update(playerPoint);
-        obstacleManager= new ObstacleManager(300, 500,100, Color.WHITE );
+        obstacleManager= new ObstacleManager(gap, obGap, height, Color.WHITE );
         movingPlayer = false;
     }
     @Override
@@ -106,6 +129,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             paint.setTextSize(100);
             paint.setColor(Color.RED);
             drawCenterText(canvas, paint, "Game Over.");
+
         }
     }
     private void drawCenterText(Canvas canvas, Paint paint, String text) {

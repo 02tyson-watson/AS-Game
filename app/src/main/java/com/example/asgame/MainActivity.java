@@ -24,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    public void music_select(View view){
+        Intent intent = new Intent(this, Music.class);
+        startActivity(intent);
+        stopPlaying();
+
+    }
     public void difficulty_select(View view){
         Intent intent = new Intent(this, Difficulty.class);
         startActivity(intent);
@@ -36,4 +42,5 @@ public class MainActivity extends AppCompatActivity {
             song = null;
         }
     }
+
 }

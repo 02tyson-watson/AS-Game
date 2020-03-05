@@ -3,6 +3,7 @@ package com.example.asgame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -11,6 +12,7 @@ import android.view.WindowManager;
 
 public class Game extends Activity {
     public MediaPlayer song;
+    boolean gameOver = GamePanel.gameOver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
