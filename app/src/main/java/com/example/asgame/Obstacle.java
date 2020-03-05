@@ -9,7 +9,7 @@ public class Obstacle implements GameObject {
     private int color;
     private Rect rectangle2;
 
-    public void incrementY(float y){
+    public void incrementY(double y){
         rectangle.top += y;
         rectangle.bottom += y;
         rectangle2.top += y;

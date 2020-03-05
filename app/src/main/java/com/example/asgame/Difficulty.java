@@ -22,8 +22,15 @@ public class Difficulty extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_difficulty);
+        stopPlaying();
+        song = MediaPlayer.create(this, R.raw.sonic_select);
+        easy = MediaPlayer.create(this, R.raw.sonic_easy);
+        medium = MediaPlayer.create(this, R.raw.sonic_medium);
+        hard = MediaPlayer.create(this, R.raw.sonic_hard);
+        impossible = MediaPlayer.create(this, R.raw.sonic_impossible);
         switch (music){
             case "8bit":
+                stopPlaying();
                 song = MediaPlayer.create(this, R.raw.sonic_select);
                 easy = MediaPlayer.create(this, R.raw.sonic_easy);
                 medium = MediaPlayer.create(this, R.raw.sonic_medium);
@@ -31,6 +38,7 @@ public class Difficulty extends AppCompatActivity {
                 impossible = MediaPlayer.create(this, R.raw.sonic_impossible);
                 break;
             case "Rock":
+                stopPlaying();
                 song = MediaPlayer.create(this, R.raw.sonic_select_two);
                 easy = MediaPlayer.create(this, R.raw.sonic_easy_two);
                 medium = MediaPlayer.create(this, R.raw.sonic_medium_two);

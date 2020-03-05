@@ -9,10 +9,25 @@ public class ObstacleManager {
     private int obstacleGap;
     private int obstacleHeight;
     private int color;
-
+    public double fast = 2;
+    public double increase = 0;
     private long startTime;
-
+    String difficulty = Difficulty.difficulty;
     public ObstacleManager(int playerGap, int obstacleGap,int obstacleHeight,int color){
+        switch (difficulty){
+            case "impossible":
+                increase = 0.00005;
+                break;
+            case "hard":
+                increase = 0.0001;
+                break;
+            case "medium":
+                increase = 0.0005;
+                break;
+            case "easy":
+                increase = 0.001;
+                break;
+        }
         this.playerGap=playerGap;
         this.obstacleGap = obstacleGap;
         this.obstacleHeight = obstacleHeight;
@@ -43,7 +58,8 @@ public class ObstacleManager {
         startTime = System.currentTimeMillis();
         float speed = Constants.SCREEN_HEIGHT/10000.0f;
         for(Obstacle ob : obstacles){
-            ob.incrementY(speed * elapsedTime * 2);
+            ob.incrementY(speed * elapsedTime * fast);
+            fast += increase;
         }
         if(obstacles.get(obstacles.size()-1).getRectangle().top >= Constants.SCREEN_HEIGHT){
             int xStart = (int)(Math.random()*(Constants.SCREEN_WIDTH - playerGap));
