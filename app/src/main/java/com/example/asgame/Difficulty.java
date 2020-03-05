@@ -84,6 +84,7 @@ public class Difficulty extends AppCompatActivity {
         stopPlaying();
         Intent intent = new Intent(this, Custom.class);
         startActivity(intent);
+        difficulty = "custom";
     }
     public void stopPlaying(){
         if (song != null) {

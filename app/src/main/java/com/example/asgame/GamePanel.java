@@ -12,8 +12,13 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import static com.example.asgame.MainThread.canvas;
+
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     String difficulty = Difficulty.difficulty;
+    int customObGap = Custom.customObGap;
+    int customGap = Custom.customGap;
+    public static int score = 0;
     private Rect r = new Rect();
     private MainThread thread;
     private RectPlayer player;
@@ -25,9 +30,21 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public int gap = 300;
     public int obGap = 500;
     public int height = 100;
+
     public GamePanel (Context context){
         super(context);
+        if(customGap > -1){
+            customGap *= 100;
+        }
+
+        if(customObGap > -1){
+            customObGap*= 100;
+        }
         switch (difficulty){
+            case "custom":
+                gap = customGap;
+                obGap = customObGap;
+                break;
             case "impossible":
                 gap = 200;
                 obGap = 200;
@@ -38,25 +55,28 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 break;
             case "easy":
                 gap = 500;
-                obGap = 400;
+                obGap = 500;
                 break;
             case "medium":
                 gap = 300;
                 obGap = 500;
                 break;
         }
+
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
         player = new RectPlayer(new Rect( 100,200,200,100),Color.BLUE);
         playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT - 200);
         player.update(playerPoint);
         obstacleManager= new ObstacleManager(gap, obGap, height, Color.WHITE );
+
         // playerGap is how big the whole is for the player to fit into
         // ObstacleGap is the gap between the different bars
         // height is just how thick the bars are
         setFocusable(true);
     }
     public void reset(){
+
         playerPoint = new Point(Constants.SCREEN_WIDTH/2,Constants.SCREEN_HEIGHT - 200);
         player.update(playerPoint);
         obstacleManager= new ObstacleManager(gap, obGap, height, Color.WHITE );
@@ -71,7 +91,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         thread = new MainThread(getHolder(), this);
         thread.setRunning(true);
         thread.start();
-
     }
     @Override
     public void surfaceDestroyed(SurfaceHolder holder){
@@ -109,6 +128,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         return true;
     }
     public void update(){
+        Paint paint = new Paint();
+        paint.setTextSize(100);
+        paint.setColor(Color.RED);
+        drawTopText(canvas, paint, score);
         if(!gameOver) {
             player.update(playerPoint);
             obstacleManager.update();
@@ -141,5 +164,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         float x = cWidth / 2f - r.width() / 2f - r.left;
         float y = cHeight / 2f + r.height() / 2f - r.bottom;
         canvas.drawText(text, x, y, paint);
+    }
+
+    private void drawTopText(Canvas canvas,Paint paint,int points){
+        paint.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("Score: " + points,  5,25, paint);
     }
 }

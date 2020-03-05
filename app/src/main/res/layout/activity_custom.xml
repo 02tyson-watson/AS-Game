@@ -12,10 +12,12 @@
         android:text="CUSTOM"
         android:paddingTop="20sp"
         android:fontFamily="@font/ka1"
+        android:id="@+id/CUSTOM"
         android:textSize="40sp"
         android:layout_centerInParent="true"
         android:textColor="#000000"
         android:layout_alignParentTop="true"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,4 +27,147 @@
         android:onClick="openGamecustom"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/CUSTOM"
+        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:textSize="12sp"
+            android:fontFamily="@font/ka1"
+            android:textColor="#000000"
+            android:text="The Distance Between The Obstacles"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/up"
+                android:fontFamily="@font/ka1"
+                android:paddingLeft="25dp"
+                android:onClick="obgapup"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/obgapnumber"
+                android:textSize="25sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/ka1"
+                android:textColor="#000000"/>
+            <Button
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/down"
+            android:fontFamily="@font/ka1"
+            android:onClick="obgapdown"
+            android:paddingLeft="25dp"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="12sp"
+            android:fontFamily="@font/ka1"
+            android:textColor="#000000"
+            android:text="The Width of the hole in the obstacles"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/up"
+                android:fontFamily="@font/ka1"
+                android:onClick="gapup"
+                android:paddingLeft="25dp"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/gapnumber"
+                android:textSize="25sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/ka1"
+                android:textColor="#000000"/>
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/down"
+                android:fontFamily="@font/ka1"
+                android:onClick="gapdown"
+                android:paddingLeft="25dp"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="12sp"
+            android:fontFamily="@font/ka1"
+            android:textColor="#000000"
+            android:text="How Fast The Obstacles Come At you "/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/up"
+                android:fontFamily="@font/ka1"
+                android:onClick="fastup"
+                android:paddingLeft="25dp"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/fastnumber"
+                android:textSize="25sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/ka1"
+                android:textColor="#000000"/>
+            <Button
+                android:layout_width="60dp"
+                android:onClick="fastdown"
+                android:layout_height="wrap_content"
+                android:background="@drawable/down"
+                android:fontFamily="@font/ka1"
+                android:paddingLeft="25dp"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>

@@ -1,9 +1,12 @@
 package com.example.asgame;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 
 import java.util.ArrayList;
 
 public class ObstacleManager {
+    double customFast = Custom.customFast;
     private ArrayList<Obstacle> obstacles;
     private int playerGap;
     private int obstacleGap;
@@ -11,10 +14,14 @@ public class ObstacleManager {
     private int color;
     public double fast = 2;
     public double increase = 0;
+    private int score = 0;
     private long startTime;
     String difficulty = Difficulty.difficulty;
+
     public ObstacleManager(int playerGap, int obstacleGap,int obstacleHeight,int color){
         switch (difficulty){
+            case "custom":
+                fast = customFast;
             case "impossible":
                 increase = 0.00005;
                 break;
@@ -25,7 +32,7 @@ public class ObstacleManager {
                 increase = 0.0005;
                 break;
             case "easy":
-                increase = 0.001;
+                increase = 0.0002;
                 break;
         }
         this.playerGap=playerGap;
@@ -65,10 +72,16 @@ public class ObstacleManager {
             int xStart = (int)(Math.random()*(Constants.SCREEN_WIDTH - playerGap));
             obstacles.add(0, new Obstacle(obstacleHeight,color, xStart ,obstacles.get(0).getRectangle().top - obstacleHeight - obstacleGap,playerGap));
             obstacles.remove(obstacles.size() - 1);
+            score++;
         }
     }
     public void draw(Canvas canvas){
         for(Obstacle ob : obstacles)
             ob.draw(canvas);
+        Paint paint = new Paint();
+        paint.setTextSize(100);
+        paint.setColor(Color.RED);
+        canvas.drawText("Score: " + score, 100,200,paint);
+
     }
 }
