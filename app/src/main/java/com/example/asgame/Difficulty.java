@@ -47,6 +47,7 @@ public class Difficulty extends AppCompatActivity {
                 break;
 
         }
+        custom = MediaPlayer.create(this, R.raw.sonic_machine);
 
         song.start();
         Intent intent = getIntent();
@@ -82,6 +83,7 @@ public class Difficulty extends AppCompatActivity {
     }
     public void openCustom (View view){
         stopPlaying();
+        custom.start();
         Intent intent = new Intent(this, Custom.class);
         startActivity(intent);
         difficulty = "custom";
