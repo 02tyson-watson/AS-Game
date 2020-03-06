@@ -46,19 +46,19 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 obGap = customObGap;
                 break;
             case "impossible":
-                gap = 200;
+                gap = 300;
                 obGap = 200;
                 break;
             case "hard":
-                gap = 250;
+                gap = 400;
                 obGap = 300;
                 break;
             case "easy":
-                gap = 500;
+                gap = 800;
                 obGap = 500;
                 break;
             case "medium":
-                gap = 300;
+                gap = 600;
                 obGap = 500;
                 break;
         }
@@ -112,7 +112,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 if(!gameOver && player.getRectangle().contains((int)event.getX(), (int)event.getY())){
                     movingPlayer = true;
                 break;
-                }if(gameOver && System.currentTimeMillis() - gameOverTime >= 2000){
+                }if(gameOver && System.currentTimeMillis() - gameOverTime >= 1000){
                 reset();
                 gameOver = false;
                 break;

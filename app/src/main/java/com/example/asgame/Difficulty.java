@@ -41,8 +41,8 @@ public class Difficulty extends AppCompatActivity {
                 stopPlaying();
                 song = MediaPlayer.create(this, R.raw.sonic_select_two);
                 easy = MediaPlayer.create(this, R.raw.sonic_easy_two);
-                medium = MediaPlayer.create(this, R.raw.sonic_medium_two);
-                hard = MediaPlayer.create(this, R.raw.sonic_hard_two);
+                medium = MediaPlayer.create(this, R.raw.sonic_hard_two);
+                hard = MediaPlayer.create(this, R.raw.sonic_medium_two);
                 impossible = MediaPlayer.create(this, R.raw.sonic_impossible_two);
                 break;
 
