@@ -37,14 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 }
         }
     }
-    public void music_select(View view){
-        Intent intent = new Intent(this, Music.class);
-        startActivity(intent);
-        stopPlaying();
-
-    }
     public void difficulty_select(View view){
-        Intent intent = new Intent(this, Difficulty.class);
+        Intent intent = new Intent(this, Music.class);
         startActivity(intent);
         stopPlaying();
     }

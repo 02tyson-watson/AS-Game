@@ -16,6 +16,7 @@ public class Music extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
         Switch music_switch = (Switch) findViewById(R.id.music_switch);
+        music = "8bit";
 
         music_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -29,7 +30,7 @@ public class Music extends AppCompatActivity {
         });
     }
     public void back(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Difficulty.class);
         startActivity(intent);
     }
 }

@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="START"
         android:fontFamily="@font/ka1"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:onClick="openGamecustom"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"/>
@@ -31,13 +31,13 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_below="@+id/CUSTOM"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:textSize="12sp"
             android:fontFamily="@font/ka1"
             android:textColor="#000000"
@@ -45,7 +45,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:orientation="horizontal">
 
             <Button
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/up"
                 android:fontFamily="@font/ka1"
-                android:paddingLeft="25dp"
+                android:paddingStart="25dp"
                 android:onClick="obgapup"
                 android:textColor="#000000"
                 android:textSize="30sp" />
@@ -74,7 +74,7 @@
             android:background="@drawable/down"
             android:fontFamily="@font/ka1"
             android:onClick="obgapdown"
-            android:paddingLeft="25dp"
+            android:paddingStart="25dp"
             android:textColor="#000000"
             android:textSize="30sp" />
         </LinearLayout>
@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:textSize="12sp"
             android:fontFamily="@font/ka1"
             android:textColor="#000000"
@@ -90,7 +90,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:orientation="horizontal">
 
             <Button
@@ -99,7 +99,7 @@
                 android:background="@drawable/up"
                 android:fontFamily="@font/ka1"
                 android:onClick="gapup"
-                android:paddingLeft="25dp"
+                android:paddingStart="25dp"
                 android:textColor="#000000"
                 android:textSize="30sp" />
 
@@ -127,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:textSize="12sp"
             android:fontFamily="@font/ka1"
             android:textColor="#000000"
@@ -135,7 +135,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:orientation="horizontal">
 
             <Button
@@ -144,7 +144,6 @@
                 android:background="@drawable/up"
                 android:fontFamily="@font/ka1"
                 android:onClick="fastup"
-                android:paddingLeft="25dp"
                 android:textColor="#000000"
                 android:textSize="30sp" />
 
@@ -164,10 +163,129 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/down"
                 android:fontFamily="@font/ka1"
-                android:paddingLeft="25dp"
+                android:paddingStart="25dp"
                 android:textColor="#000000"
                 android:textSize="30sp" />
+
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="25dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose the player color"
+                android:fontFamily="@font/ka1"
+                android:textColor="#000000"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/Red"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:id="@+id/Red"
+                    android:onClick="pRed"
+                    android:fontFamily="@font/ka1"
+                    android:text="Red" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:onClick="pGreen"
+                    android:id="@+id/Green"
+                    android:text="Green"
+                    android:fontFamily="@font/ka1"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="pBlue"
+                    android:id="@+id/Blue"
+                    android:layout_marginStart="15dp"
+                    android:text="Blue"
+                    android:fontFamily="@font/ka1"/>
+                </RadioGroup>
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose the obstacle color"
+                android:fontFamily="@font/ka1"
+                android:textColor="#000000"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/white"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:id="@+id/white"
+                    android:onClick="obWhite"
+                    android:fontFamily="@font/ka1"
+                    android:text="white" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:onClick="obRed"
+                    android:id="@+id/redob"
+                    android:text="Red"
+                    android:fontFamily="@font/ka1"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="obBlue"
+                    android:id="@+id/Blueob"
+                    android:layout_marginStart="15dp"
+                    android:text="Blue"
+                    android:fontFamily="@font/ka1"/>
+            </RadioGroup>
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose the Background color"
+                android:fontFamily="@font/ka1"
+                android:textColor="#000000"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/backblack"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="blackBack"
+                    android:id="@+id/backblack"
+                    android:text="Black"
+                    android:fontFamily="@font/ka1"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:id="@+id/whiteback"
+                    android:onClick="backWhite"
+                    android:fontFamily="@font/ka1"
+                    android:layout_marginStart="15dp"
+                    android:text="white" />
+
+
+
+            </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

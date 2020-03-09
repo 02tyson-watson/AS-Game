@@ -51,7 +51,7 @@
         android:textSize="50dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:text="BACK"
+        android:text="Next"
         android:fontFamily="@font/ka1"
         android:textColor="#000000"
         android:onClick="back"

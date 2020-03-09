@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 public class Custom extends AppCompatActivity {
     public static int customObGap;
+    public static int playerColorNumber;
+    public static int obstacleColorNumber;
+    public static int backgroundColorNumber;
     String difficulty = Difficulty.difficulty;
     public static int customGap;
     public static double customFast;
@@ -41,10 +44,23 @@ public class Custom extends AppCompatActivity {
     }public void fastdown (View view){
         customFast--;
         displayfast(customFast);
-    }
-
-
-    private void displayobgap(int number){
+    }public void pRed (View view){
+        playerColorNumber = 1;
+    }public void pGreen(View view){
+        playerColorNumber = 2;
+    }public void pBlue(View view){
+        playerColorNumber = 3;
+    }public void obWhite(View view){
+        obstacleColorNumber = 1;
+    }public void obRed(View view){
+        obstacleColorNumber = 2;
+    }public void obBlue(View view){
+        obstacleColorNumber = 3;
+    }public void blackBack(View view){
+        backgroundColorNumber = 1;
+    }public void backWhite(View view){
+        backgroundColorNumber = 2;
+    }private void displayobgap(int number){
         TextView obgapnumber = findViewById(R.id.obgapnumber);
         obgapnumber.setText("" + number);
     }private void displaygap(int number){

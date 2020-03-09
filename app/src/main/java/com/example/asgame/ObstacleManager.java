@@ -2,10 +2,11 @@ package com.example.asgame;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.media.MediaPlayer;
 
 import java.util.ArrayList;
 
-public class ObstacleManager {
+public class ObstacleManager extends Game {
     double customFast = Custom.customFast;
     private ArrayList<Obstacle> obstacles;
     private int playerGap;
@@ -16,6 +17,7 @@ public class ObstacleManager {
     public double increase = 0;
     private int score = 0;
     private long startTime;
+    public MediaPlayer point;
     String difficulty = Difficulty.difficulty;
 
     public ObstacleManager(int playerGap, int obstacleGap,int obstacleHeight,int color){
@@ -73,6 +75,7 @@ public class ObstacleManager {
             obstacles.add(0, new Obstacle(obstacleHeight,color, xStart ,obstacles.get(0).getRectangle().top - obstacleHeight - obstacleGap,playerGap));
             obstacles.remove(obstacles.size() - 1);
             score++;
+           
         }
     }
     public void draw(Canvas canvas){
